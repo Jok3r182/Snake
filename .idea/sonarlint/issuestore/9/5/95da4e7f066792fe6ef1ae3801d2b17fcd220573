@@ -1,0 +1,30 @@
+
+o
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(œû¿Ø8ÉÿĞ.
+Z	java:S106*"9Replace this use of System.out or System.err by a logger.(‹µ‹¶ıÿÿÿÿ8Ü„ÒéĞ.
+U	java:S106."9Replace this use of System.out or System.err by a logger.(×•œ²8Ü„ÒéĞ.
+Z	java:S106p"9Replace this use of System.out or System.err by a logger.(«ë€Ïüÿÿÿÿ8œÅÚÈĞ.
+Z	java:S106w"9Replace this use of System.out or System.err by a logger.(ší¡Ñıÿÿÿÿ8Ü„ÒéĞ.
+Q
+java:S1128"/Remove this unused import 'javafx.stage.Stage'.(æÄ¸²úÿÿÿÿ8»‹¡œĞ.
+Z	java:S106""9Replace this use of System.out or System.err by a logger.(å÷õ”úÿÿÿÿ8Ï·ÛéĞ.
+Z	java:S106&"9Replace this use of System.out or System.err by a logger.(Ö…°òùÿÿÿÿ8Ü„ÒéĞ.
+Z	java:S106>"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8Ü„ÒéĞ.
+Z	java:S106u"9Replace this use of System.out or System.err by a logger.(×÷Å„ûÿÿÿÿ8Ü„ÒéĞ.
+T
+java:S1128
+"7Remove this unused import 'java.awt.event.KeyListener'.(ç„›û8»‹¡œĞ.
+L
+java:S1128"/Remove this unused import 'javafx.scene.Scene'.(Õü²8»‹¡œĞ.
+W
+java:S1128";Remove this unused import 'javafx.application.Application'.(í™şj8»‹¡œĞ.
+U	java:S106q"9Replace this use of System.out or System.err by a logger.(ç¾ô8œÅÚÈĞ.
+Z	java:S106r"9Replace this use of System.out or System.err by a logger.(Ë‘ìûÿÿÿÿ8Ü„ÒéĞ.
+Q
+java:S1128	"4Remove this unused import 'java.awt.event.KeyEvent'.(¬ğİÍ8İ“ëœĞ.
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’à°¬øÿÿÿÿ
+M
+java:S1128"0Remove this unused import 'javafx.scene.Parent'.(²ä¡È8»‹¡œĞ.
+W
+java:S1128"5Remove this unused import 'javafx.scene.layout.Pane'.(êÄƒÄşÿÿÿÿ8»‹¡œĞ.
+]	java:S125F"<This block of commented-out lines of code should be removed.(Òï¯Üúÿÿÿÿ8•Ö£ëĞ.
