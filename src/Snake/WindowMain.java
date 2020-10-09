@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -25,7 +26,7 @@ public class WindowMain extends JPanel{
     private char command=0;
     private char tempCommand;
 
-    public WindowMain() throws IOException {
+    public WindowMain() throws IOException, FontFormatException {
         Map map = new Map();
         Random rand= new Random();
         Snake snake = new Snake(new Position(rand.nextInt(map.getGameMap()[0].length-2)+1, rand.nextInt(map.getGameMap().length-2)+1));
@@ -41,7 +42,10 @@ public class WindowMain extends JPanel{
         tail=ImageIO.read(new FileInputStream("src/img/tailSnake.png"));
 
         JLabel scoreboard = new JLabel();
-       // scoreboard.se
+        Font font =Font.createFont(Font.TRUETYPE_FONT, new File("src/Fonts/Terasong-mLZ3a.ttf")).deriveFont(30f);
+        Color color= new Color(153,229,80);
+        scoreboard.setFont(font);
+        scoreboard.setForeground(color);
 
         super.add(scoreboard);
         super.addKeyListener(new KeyListener() {
