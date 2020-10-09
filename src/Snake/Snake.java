@@ -3,6 +3,7 @@ package Snake;
 import javafx.geometry.Pos;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Snake {
     private int tailLenght;
@@ -19,24 +20,17 @@ public class Snake {
         positions.add(position);
     }
 
-    public ArrayList<Position> getPositions()
+    public List<Position> getPositions()
     {
      return positions;
     }
 
-    public void setPosition(Position headPos) {
-        this.headPos = headPos;
-    }
-
-    public int getTailLenght() {
-        return tailLenght;
-    }
     public void increaseTailLength()
     {
         this.tailLenght++;
     }
 
-    public Position getPosition() {
+    public Position getHeadPosition() {
         return headPos;
     }
 
@@ -62,5 +56,7 @@ public class Snake {
 
     }
 
-
+    public int getTailLenght() {
+        return tailLenght;
+    }
 }

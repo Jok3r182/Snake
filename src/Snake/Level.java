@@ -4,11 +4,14 @@ public class Level {
     private Snake snake;
     private Map map;
     private Food food;
-    public Level(Snake snake, Map map, Food food)
+    private Score score;
+
+    public Level(Snake snake, Map map, Food food, Score score)
     {
         setSnake(snake);
         setMap(map);
         setFood(food);
+        setScore(score);
     }
 
     public Food getFood() {
@@ -33,5 +36,13 @@ public class Level {
 
     public void setSnake(Snake snake) {
         this.snake = snake;
+    }
+
+    public Score getScore() {
+        return score;
+    }
+
+    public void setScore(Score score) {
+        this.score = score;
     }
 }

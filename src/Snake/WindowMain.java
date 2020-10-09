@@ -3,14 +3,11 @@ package Snake;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Random;
@@ -33,13 +30,20 @@ public class WindowMain extends JPanel{
         Random rand= new Random();
         Snake snake = new Snake(new Position(rand.nextInt(map.getGameMap()[0].length-2)+1, rand.nextInt(map.getGameMap().length-2)+1));
         Food food = new Food(new Position(rand.nextInt(map.getGameMap()[0].length-2)+1, rand.nextInt(map.getGameMap().length-2)+1));
-        this.lvl = new Level(snake, map, food);
+        Score score = new Score(food);
+        this.lvl = new Level(snake, map, food, score);
          this.rules = new Rules(lvl);
-        snakeImage=ImageIO.read(new FileInputStream("src/img/snakeSpriteNr3.png"));
+
+        snakeImage=ImageIO.read(new FileInputStream("src/img/snakeSpriteNr2.png"));
         foodImage=ImageIO.read(new FileInputStream("src/img/food.png"));
         wallImage=ImageIO.read(new FileInputStream("src/img/wall.png"));
         forest=ImageIO.read(new FileInputStream("src/img/Forest.png"));
         tail=ImageIO.read(new FileInputStream("src/img/tailSnake.png"));
+
+        JLabel scoreboard = new JLabel();
+       // scoreboard.se
+
+        super.add(scoreboard);
         super.addKeyListener(new KeyListener() {
 
             @Override
@@ -63,37 +67,26 @@ public class WindowMain extends JPanel{
 
             }
         });
-        
-        ActionListener actionListener = new ActionListener() {//tam tikro mygtuko paspaudimu pradeda judėt į command kryptį
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                repaint();
 
-                rules.processUserInput(command);
-                rules.foodIsEaten();
-                rules.mapCollision();
-                rules.tailIsHit();
-                rules.infoBox("Game Over", "", rules.isGameOver());
-            }
+        //tam tikro mygtuko paspaudimu pradeda judėt į command kryptį
+        ActionListener actionListener = actionEvent -> {
+            repaint();
+
+            rules.processUserInput(command);
+            rules.foodIsEaten();
+            rules.mapCollision();
+            rules.tailIsHit();
+            scoreboard.setText("Score: "+ lvl.getScore().getScore());
+            rules.infoBox("Game Over"+"\n"+"Your score: "+lvl.getScore().getScore(), "", rules.isGameOver());
         };
+
         javax.swing.Timer time = new Timer(100, actionListener);
         time.start();
         setFocusable(true);
         requestFocusInWindow();
 
     }
-    public BufferedImage rotate(BufferedImage bimg, double angle) {
 
-        int w = bimg.getWidth();
-        int h = bimg.getHeight();
-
-        BufferedImage rotated = new BufferedImage(w, h, bimg.getType());
-        Graphics2D graphic = rotated.createGraphics();
-        graphic.rotate(Math.toRadians(angle), w/2, h/2);
-        graphic.drawImage(bimg, null, 0, 0);
-        graphic.dispose();
-        return rotated;
-    }
     @Override
     public void paintComponent (Graphics g)
     {
@@ -104,7 +97,7 @@ public class WindowMain extends JPanel{
                 g.drawImage(tail, 50 + pos.getX() * 30, 50 + pos.getY() * 30, 64, 64, null);
             }
         }
-        g.drawImage(snakeImage, 50 + lvl.getSnake().getPosition().getX() * 30, 50 + lvl.getSnake().getPosition().getY() * 30, 64, 64, null);
+        g.drawImage(snakeImage, 50 + lvl.getSnake().getHeadPosition().getX() * 30, 50 + lvl.getSnake().getHeadPosition().getY() * 30, 64, 64, null);
 
        g.drawImage(foodImage, 50+lvl.getFood().getPosition().getX()*30, 50+lvl.getFood().getPosition().getY()*30, 50, 50, null);
         for (int y = 0; y < lvl.getMap().width(); y++) {
@@ -114,22 +107,19 @@ public class WindowMain extends JPanel{
         }
     }
     public static void main(String[] args) throws InvocationTargetException, InterruptedException {
-        SwingUtilities.invokeAndWait(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    JFrame frame = new JFrame();
-                    frame.setPreferredSize(new Dimension(1700, 1500));
-                    frame.pack();
-                    frame.setContentPane(new WindowMain());
-                    frame.setVisible(true);
-                    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        SwingUtilities.invokeAndWait(() -> {
+            try {
+                JFrame frame = new JFrame();
+                frame.setPreferredSize(new Dimension(1700, 1500));
+                frame.pack();
+                frame.setContentPane(new WindowMain());
+                frame.setVisible(true);
+                frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 
-                }catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
+            }catch (Exception e)
+            {
+                e.printStackTrace();
             }
         });
     }

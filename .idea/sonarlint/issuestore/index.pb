@@ -2,10 +2,6 @@
 C
 src/Snake/Food.java,1\5\15bbab7b8a51739f9d1036dfc046fcc22977b229
 G
-src/Snake/Movement.java,8\d\8d8da4a424a43646dce970002adf951bc43e832b
-C
-src/Snake/Main.java,9\5\95da4e7f066792fe6ef1ae3801d2b17fcd220573
-G
 src/Snake/Position.java,4\b\4b63571d0e0ad3d14bc8c648faf716f317456fb5
 D
 src/Snake/Snake.java,c\8\c8caae967e6c89468f9dd3c3b3fca58c4cc69b78
@@ -13,8 +9,6 @@ I
 src/Snake/WindowMain.java,9\1\912d3149e4c9d7083d7631508c9e46287635485b
 D
 src/Snake/Level.java,e\1\e1d6aadf19ffe8e126b9989081ca814f134011f2
-K
-src/Snake/ConsoleInput.java,8\f\8f61977775c9dd7aa272e4c731bf4e9b3d4dd01d
 B
 src/Snake/Map.java,f\6\f6dede0c3383d5474735f4dee764c82aa2807430
 D
