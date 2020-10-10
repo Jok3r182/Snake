@@ -80,8 +80,8 @@ public class WindowMain extends JPanel{
             rules.foodIsEaten();
             rules.mapCollision();
             rules.tailIsHit();
-            scoreboard.setText("Score: "+ lvl.getScore().getScore());
-            rules.infoBox("Game Over"+"\n"+"Your score: "+lvl.getScore().getScore(), "", rules.isGameOver());
+            scoreboard.setText("Score: "+ lvl.getScore().getScore()+" HighScore: "+lvl.getScore().getHighScore());
+            rules.infoBox("Game Over"+"\n"+"Your score: "+lvl.getScore().getScore()+"\nYour Highest Score: "+lvl.getScore().getHighScore(), "", rules.isGameOver());
         };
 
         javax.swing.Timer time = new Timer(100, actionListener);
