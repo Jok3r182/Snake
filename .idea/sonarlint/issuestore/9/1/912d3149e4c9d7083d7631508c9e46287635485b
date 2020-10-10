@@ -1,20 +1,20 @@
 
-G
-java:S1948"%Make "lvl" transient or serializable.(¤À¹®ÿÿÿÿÿ8®è°ÃĞ.
-
-java:S1186+"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷—8¹ïçòĞ.
-E
-java:S1948"(Make "forest" transient or serializable.(Å¿×ó8È–‰ÇĞ.
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’à°¬øÿÿÿÿ
-I
-java:S1948",Make "snakeImage" transient or serializable.(«ùÖ¾8û¢ºÃĞ.
 M
-java:S1948"+Make "foodImage" transient or serializable.(£ÆÉÿùÿÿÿÿ8¹ŞºÃĞ.
+java:S1948"+Make "wallImage" transient or serializable.(æÊ›“øÿÿÿÿ8Ï»ÃĞ.
+I
+java:S1948"'Make "rules" transient or serializable.(Ï«ıæşÿÿÿÿ8Ûğ‰ÄĞ.
+
+java:S11866"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷—8¹ïçòĞ.
+M
+java:S1948"+Make "foodImage" transient or serializable.(£ÆÉÿùÿÿÿÿ8¹ŞºÃĞ.
+I
+java:S1948",Make "snakeImage" transient or serializable.(«ùÖ¾8û¢ºÃĞ.
+E
+java:S1948"(Make "forest" transient or serializable.(Å¿×ó8È–‰ÇĞ.
 C
-java:S1948"&Make "tail" transient or serializable.(¾Ó¡™8äúìğĞ.
-M
-java:S1948"+Make "wallImage" transient or serializable.(æÊ›“øÿÿÿÿ8Ï»ÃĞ.
-I
-java:S1948"'Make "rules" transient or serializable.(Ï«ıæşÿÿÿÿ8Ûğ‰ÄĞ.
+java:S1948"&Make "tail" transient or serializable.(¾Ó¡™8äúìğĞ.
 £
-java:S1186;"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(˜Â½€øÿÿÿÿ8¹ïçòĞ.
+java:S1186F"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(˜Â½€øÿÿÿÿ8¹ïçòĞ.
+G
+java:S1948"%Make "lvl" transient or serializable.(¤À¹®ÿÿÿÿÿ8İ¤ÆóĞ.

@@ -13,3 +13,5 @@ B
 src/Snake/Map.java,f\6\f6dede0c3383d5474735f4dee764c82aa2807430
 D
 src/Snake/Rules.java,1\f\1f665b4149e06fa8c4c821ac56259bb43ff55f56
+D
+src/Snake/Score.java,7\8\786fb6808ab8f0903dc304b12332791db2b0acde
