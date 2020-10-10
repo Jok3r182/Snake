@@ -47,6 +47,8 @@ public class WindowMain extends JPanel{
         scoreboard.setFont(font);
         scoreboard.setForeground(color);
 
+        GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(font);//html nemato font, reikia jį registruoti JRE
+
         super.add(scoreboard);
         super.addKeyListener(new KeyListener() {
 
@@ -80,7 +82,7 @@ public class WindowMain extends JPanel{
             rules.foodIsEaten();
             rules.mapCollision();
             rules.tailIsHit();
-            scoreboard.setText("Score: "+ lvl.getScore().getScore()+" HighScore: "+lvl.getScore().getHighScore());
+            scoreboard.setText("<html>"+"Score: "+ lvl.getScore().getScore()+"<br/>"+" HighScore: "+lvl.getScore().getHighScore()+"</html>");
             rules.infoBox("Game Over"+"\n"+"Your score: "+lvl.getScore().getScore()+"\nYour Highest Score: "+lvl.getScore().getHighScore(), "", rules.isGameOver());
         };
 
@@ -98,16 +100,16 @@ public class WindowMain extends JPanel{
         g.drawImage(forest, 0, 0, 1700, 1500, null);
         if (!lvl.getSnake().getPositions().isEmpty()) {
             for (Position pos : lvl.getSnake().getPositions()) {
-                g.drawImage(tail, 50 + pos.getX() * 30, 50 + pos.getY() * 30, 64, 64, null);
+                g.drawImage(tail, 50 + pos.getX() * 30, 100 + pos.getY() * 30, 64, 64, null);
             }
         }
-        g.drawImage(snakeImage, 50 + lvl.getSnake().getHeadPosition().getX() * 30, 50 + lvl.getSnake().getHeadPosition().getY() * 30, 64, 64, null);
+        g.drawImage(snakeImage, 50 + lvl.getSnake().getHeadPosition().getX() * 30, 100 + lvl.getSnake().getHeadPosition().getY() * 30, 64, 64, null);
 
-       g.drawImage(foodImage, 50+lvl.getFood().getPosition().getX()*30, 50+lvl.getFood().getPosition().getY()*30, 50, 50, null);
+       g.drawImage(foodImage, 50+lvl.getFood().getPosition().getX()*30, 100+lvl.getFood().getPosition().getY()*30, 50, 50, null);
         for (int y = 0; y < lvl.getMap().width(); y++) {
             for (int x = 0; x < lvl.getMap().height(); x++)
                 if (lvl.getMap().isWall(y, x))
-                    g.drawImage(wallImage, 50 + x*30, 50 + y*30, 40, 40, null);//bloko x ir y dydis
+                    g.drawImage(wallImage, 50 + x*30, 100 + y*30, 40, 40, null);//bloko x ir y dydis
         }
     }
     public static void main(String[] args) throws InvocationTargetException, InterruptedException {

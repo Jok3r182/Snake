@@ -114,7 +114,6 @@ public class Rules {
 
     public void infoBox(String infoMessage, String titleBar, boolean gameOver) {
         if (gameOver) {
-            System.out.println(level.getScore().getHighScore());
             level.getScore().saveHighScore();
             JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
