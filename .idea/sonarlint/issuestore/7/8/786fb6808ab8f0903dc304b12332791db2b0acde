@@ -1,17 +1,17 @@
 
-c
-java:S2259H"AA "NullPointerException" could be thrown; "fos" is nullable here.(æŒÕ®ùÿÿÿÿ8ÌïÂšÑ.
-Z	java:S106,"9Replace this use of System.out or System.err by a logger.(êÓæøùÿÿÿÿ8İÌÉšÑ.
+L
+java:S2093"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8îôÉšÑ.
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’à°¬øÿÿÿÿ
-L
-java:S2093:"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8³‹ÃšÑ.
-L
-java:S2093%"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8îôÉšÑ.
+c
+java:S2259A"AA "NullPointerException" could be thrown; "fos" is nullable here.(æŒÕ®ùÿÿÿÿ8ÌïÂšÑ.
+Q
+java:S1481 "/Remove this unused "gamintojas" local variable.(ûÅßÑıÿÿÿÿ8™ÎšÑ.
+E	java:S108B")Either remove or fill this block of code.(”ı¾8ÌïÂšÑ.
+Z	java:S106>"9Replace this use of System.out or System.err by a logger.(êÓæøùÿÿÿÿ8ÌïÂšÑ.
 P
-java:S1121".Extract the assignment out of this expression.(”â ãúÿÿÿÿ8Å¤…ôĞ.
+java:S1121".Extract the assignment out of this expression.(Ê»€¾üÿÿÿÿ8Å¤…ôĞ.
 6
 java:S1700	"Rename field "score"(µ¼æÿÿÿÿÿ8²³£óĞ.
-Q
-java:S1481'"/Remove this unused "gamintojas" local variable.(ûÅßÑıÿÿÿÿ8™ÎšÑ.
-E	java:S108I")Either remove or fill this block of code.(”ı¾8ÌïÂšÑ.
-Z	java:S106E"9Replace this use of System.out or System.err by a logger.(êÓæøùÿÿÿÿ8ÌïÂšÑ.
+L
+java:S20933"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8³‹ÃšÑ.
+Z	java:S106%"9Replace this use of System.out or System.err by a logger.(êÓæøùÿÿÿÿ8İÌÉšÑ.

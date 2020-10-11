@@ -3,23 +3,22 @@ package Snake;
 public class Level {
     private Snake snake;
     private Map map;
-    private Food food;
+    private Apple apple;
     private Score score;
 
-    public Level(Snake snake, Map map, Food food, Score score)
-    {
+    public Level(Snake snake, Map map, Apple apple, Score score) {
         setSnake(snake);
         setMap(map);
-        setFood(food);
+        setFood(apple);
         setScore(score);
     }
 
-    public Food getFood() {
-        return food;
+    public Apple getFood() {
+        return apple;
     }
 
-    public void setFood(Food food) {
-        this.food = food;
+    public void setFood(Apple apple) {
+        this.apple = apple;
     }
 
     public Map getMap() {

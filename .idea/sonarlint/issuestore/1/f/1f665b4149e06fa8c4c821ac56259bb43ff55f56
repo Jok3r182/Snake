@@ -1,11 +1,9 @@
 
-]	java:S125"<This block of commented-out lines of code should be removed.(°ßŞûÿÿÿÿ8Š…éĞ.
 @
-java:S2119G"Save and re-use this "Random".(šŸ«íøÿÿÿÿ8ÿçÇèĞ.
-J
-java:S1125e"(Remove the literal "true" boolean value.(Ø’³üÿÿÿÿ8›ìêïĞ.
+java:S2119'"Save and re-use this "Random".(šŸ«íøÿÿÿÿ8ÿçÇèĞ.
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’à°¬øÿÿÿÿ
-]	java:S125-"<This block of commented-out lines of code should be removed.(°ßŞûÿÿÿÿ8çÅ…éĞ.
-]	java:S125!"<This block of commented-out lines of code should be removed.(°ßŞûÿÿÿÿ8¢ü„éĞ.
-]	java:S1259"<This block of commented-out lines of code should be removed.(°ßŞûÿÿÿÿ8‹ğ…éĞ.
+K
+java:S1481'")Remove this unused "rand" local variable.(šŸ«íøÿÿÿÿ8Ñşš¸Ñ.
 >	java:S131""Add a default case to this switch.(°Ó÷8°æÃĞ.
+Z
+java:S1854'"8Remove this useless assignment to local variable "rand".(šŸ«íøÿÿÿÿ8Ñşš¸Ñ.

@@ -7,6 +7,8 @@ import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import static Snake.GameSettings.*;
+
 public class Renderer extends JPanel {
     private final BufferedImage snakeImage;
     private final BufferedImage foodImage;
@@ -24,19 +26,19 @@ public class Renderer extends JPanel {
 
     public void render(Graphics g, Level lvl) {
         super.paintComponent(g);
-        g.drawImage(forestImg, 0, 0, 1700, 1500, null);
-        if (!lvl.getSnake().getPositions().isEmpty()) {
-            for (Position pos : lvl.getSnake().getPositions()) {
-                g.drawImage(tailImg, 50 + pos.getX() * 30, 100 + pos.getY() * 30, 64, 64, null);
+        g.drawImage(forestImg, forestImgPositionX, getForestImgPositionY, backgroundWidth, backgroundHeight, null);
+        if (!lvl.getSnake().getTailPositions().isEmpty()) {
+            for (Position pos : lvl.getSnake().getTailPositions()) {
+                g.drawImage(tailImg, distanceBetweenHeadingX + pos.getX() * hitboxSize, distanceBetweenHeadingY + pos.getY() * hitboxSize, snakeImgX, snakeImgY, null);
             }
         }
-        g.drawImage(snakeImage, 50 + lvl.getSnake().getPosition().getX() * 30, 100 + lvl.getSnake().getPosition().getY() * 30, 64, 64, null);
+        g.drawImage(snakeImage, distanceBetweenHeadingX + lvl.getSnake().getPosition().getX() * hitboxSize, distanceBetweenHeadingY + lvl.getSnake().getPosition().getY() * hitboxSize, snakeImgX, snakeImgY, null);
 
-        g.drawImage(foodImage, 50 + lvl.getFood().getPosition().getX() * 30, 100 + lvl.getFood().getPosition().getY() * 30, 50, 50, null);
+        g.drawImage(foodImage, distanceBetweenHeadingX + lvl.getFood().getPosition().getX() * hitboxSize, distanceBetweenHeadingY + lvl.getFood().getPosition().getY() * hitboxSize, foodImgX, foodImgY, null);
         for (int y = 0; y < lvl.getMap().width(); y++) {
             for (int x = 0; x < lvl.getMap().height(); x++)
                 if (lvl.getMap().isWall(y, x))
-                    g.drawImage(wallImage, 50 + x * 30, 100 + y * 30, 40, 40, null);//bloko x ir y dydis
+                    g.drawImage(wallImage, distanceBetweenHeadingX + x * hitboxSize, distanceBetweenHeadingY + y * hitboxSize, wallImgX, wallImgY, null);//bloko x ir y dydis
         }
     }
 }

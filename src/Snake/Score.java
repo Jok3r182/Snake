@@ -5,61 +5,54 @@ import java.io.FileWriter;
 import java.util.Scanner;
 
 public class Score {
-    private Food food;
+    private Apple apple;
     private int score;
     private int highScore;
 
-    public Score(Food food) {
-        this.food = food;
+    public Score(Apple apple) {
+        this.apple = apple;
     }
 
-
-    public int scored()
-    {
-        return score=score+food.getFoodValue();
+    public int scored() {
+        return score = score + apple.getFoodValue();
     }
 
     public int getScore() {
         return this.score;
     }
 
-    public int getHighScore()
-    {
-        Scanner s=null;
-        String firstLine=null;
+    public int getHighScore() {
+        Scanner s = null;
+        String firstLine = null;
         try {
             s = new Scanner(new File("src/HighScore/highScore.txt"));
-            String gamintojas = null;
             while (s.hasNext()) {
                 firstLine = s.nextLine();
             }
-        } catch (Exception klaida) {
-            System.out.println("Error");
-            klaida.printStackTrace();
+        } catch (Exception error) {
+            System.err.println("Error");
+            error.printStackTrace();
         } finally {
             if (s != null) {
                 s.close();
             }
         }
-        highScore= Integer.parseInt(firstLine);
+        highScore = Integer.parseInt(firstLine);
         return highScore;
     }
 
-    public void saveHighScore()
-    {
+    public void saveHighScore() {
         FileWriter fos = null;
         try {
             fos = new FileWriter("src/HighScore/highScore.txt");
-            if (score>highScore)
-            {
+            if (score > highScore) {
                 fos.write(Integer.toString(score));
-            }
-            else {
+            } else {
                 fos.write(Integer.toString(highScore));
             }
 
         } catch (Exception e) {
-            System.out.println("Error");
+            System.err.println("Error");
         } finally {
             try {
                 fos.close();

@@ -17,3 +17,9 @@ D
 src/Snake/Score.java,7\8\786fb6808ab8f0903dc304b12332791db2b0acde
 K
 src/HighScore/highScore.txt,5\9\593f691e4bb99bbfd7f4a09e9d44e2daa1f98851
+K
+src/Snake/GameSettings.java,6\4\645028cfb6465efe1aff83628036d85bfa380ecc
+G
+src/Snake/Location.java,7\3\730d2144b8b9257192696a681d4f3cdda6006375
+G
+src/Snake/Renderer.java,c\4\c493b26e26a88fdbf69367b2eef4b45948c46087
