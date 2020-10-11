@@ -1,6 +1,6 @@
 
 {	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’à°¬øÿÿÿÿ8–¥˜Ğ.
-K
-java:S1068".Remove this unused "tailLength" private field.(ºÀïÂ8·¨ÛïĞ.
 R
 java:S1128"0Remove this unused import 'javafx.geometry.Pos'.(ÌÆ÷Ùøÿÿÿÿ8ù“îëĞ.
+K
+java:S1068".Remove this unused "tailLength" private field.(ºÀïÂ8·¨ÛïĞ.

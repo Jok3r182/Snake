@@ -5,14 +5,12 @@ import javafx.geometry.Pos;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Snake {
-    private int tailLenght;
+public class Snake extends Location{
     private ArrayList<Position> positions= new ArrayList<>();
-    private Position headPos;
-    private int tailLength;
 
-    public Snake(Position headPos) {
-        this.headPos=headPos;
+    public Snake(Map map) {
+        super(map);
+        this.position=setStartingPosition();
     }
 
     public void addPositions(Position position)
@@ -25,19 +23,10 @@ public class Snake {
      return positions;
     }
 
-    public void increaseTailLength()
-    {
-        this.tailLenght++;
-    }
-
-    public Position getHeadPosition() {
-        return headPos;
-    }
-
     public void snakeUnitMovement()
     {
 
-        Position pos =new Position(this.headPos); //paimame galvos poziciją
+        Position pos =new Position(this.position); //paimame galvos poziciją
         for (int i=0; i<getPositions().size(); i++)
         {
             Position tpos = new Position(getPositions().get(i)); //temp prisiliginame esamai uodegos pos
@@ -56,7 +45,4 @@ public class Snake {
 
     }
 
-    public int getTailLenght() {
-        return tailLenght;
-    }
 }

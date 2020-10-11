@@ -15,3 +15,5 @@ D
 src/Snake/Rules.java,1\f\1f665b4149e06fa8c4c821ac56259bb43ff55f56
 D
 src/Snake/Score.java,7\8\786fb6808ab8f0903dc304b12332791db2b0acde
+K
+src/HighScore/highScore.txt,5\9\593f691e4bb99bbfd7f4a09e9d44e2daa1f98851

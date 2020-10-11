@@ -13,17 +13,10 @@ public class Score {
         this.food = food;
     }
 
-    public Food getFood() {
-        return food;
-    }
-
-    public void setFood(Food food) {
-        this.food = food;
-    }
 
     public int scored()
     {
-        return score=score+food.getValue();
+        return score=score+food.getFoodValue();
     }
 
     public int getScore() {

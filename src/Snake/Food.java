@@ -1,22 +1,16 @@
 package Snake;
 
-public class Food {
-    private Position position;
-    private int value=10;
+import static Snake.Constants.foodValue;
 
-    public Food(Position position) {
-        this.position = position;
+public class Food extends Location{
+
+    public Food(Map map) {
+        super(map);
+        this.position = setStartingPosition();
     }
 
-    public Position getPosition() {
-        return position;
+    public int getFoodValue() {
+        return foodValue;
     }
 
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
 }

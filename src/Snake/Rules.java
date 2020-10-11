@@ -14,52 +14,20 @@ public class Rules {
     public void processUserInput(int key) {
         switch (key) {
             case 'w':
-                int y = level.getSnake().getHeadPosition().getY();
-                int tpos1;
                 level.getSnake().snakeUnitMovement();
-                level.getSnake().getHeadPosition().setY(--y);
-
-                /*for (int i=0; i<level.getSnake().getPositions().size(); i++)
-                {
-                    tpos1=level.getSnake().getPositions().get(i).getY();
-                    level.getSnake().getPositions().get(i).setY(y);
-                    y=tpos1;
-                }*/
+                level.getSnake().setPosition(level.getSnake().getPosition().up());
                 break;
             case 's':
-                int y1 = level.getSnake().getHeadPosition().getY();
                 level.getSnake().snakeUnitMovement();
-                level.getSnake().getHeadPosition().setY(++y1);
-              /*  for (int i=0; i<level.getSnake().getPositions().size(); i++)
-                {
-                    tpos1=level.getSnake().getPositions().get(i).getY();
-                    level.getSnake().getPositions().get(i).setY(y1);
-                    y1=tpos1;
-                }*/
+                level.getSnake().setPosition(level.getSnake().getPosition().down());
                 break;
             case 'a':
-                int tpos3;
-                int x = level.getSnake().getHeadPosition().getX();
                 level.getSnake().snakeUnitMovement();
-                level.getSnake().getHeadPosition().setX(--x);
-               /* for (int i=0; i<level.getSnake().getPositions().size(); i++)
-                {
-                    tpos3=level.getSnake().getPositions().get(i).getX();
-                    level.getSnake().getPositions().get(i).setX(x);
-                    x=tpos3;
-                }*/
+                level.getSnake().setPosition(level.getSnake().getPosition().left());
                 break;
             case 'd':
-                int x1 = level.getSnake().getHeadPosition().getX();
                 level.getSnake().snakeUnitMovement();
-                level.getSnake().getHeadPosition().setX(++x1);
-
-                /*for (int i=0; i<level.getSnake().getPositions().size(); i++)
-                {
-                    tpos3=level.getSnake().getPositions().get(i).getX();
-                    level.getSnake().getPositions().get(i).setX(x1);
-                    x1=tpos3;
-                }*/
+                level.getSnake().setPosition(level.getSnake().getPosition().right());
                 break;
             case 'q':
                 setGameOver(true);
@@ -69,11 +37,9 @@ public class Rules {
 
     public void foodIsEaten() {
         Random rand = new Random();
-        if (level.getSnake().getHeadPosition().getY() == level.getFood().getPosition().getY() && level.getSnake().getHeadPosition().getX() == level.getFood().getPosition().getX()) {
-            level.getSnake().increaseTailLength();
-            level.getSnake().addPositions(new Position(level.getSnake().getHeadPosition()));
-            level.getFood().getPosition().setX(rand.nextInt(level.getMap().height() - 2) + 1);
-            level.getFood().getPosition().setY(rand.nextInt(level.getMap().width() - 2) + 1);
+        if (level.getSnake().getPosition().getY() == level.getFood().getPosition().getY() && level.getSnake().getPosition().getX() == level.getFood().getPosition().getX()) {
+            level.getSnake().addPositions(new Position(level.getSnake().getPosition()));
+            level.getFood().setNewPosition();
             level.getScore().scored();
             foodEaten=true;
         }
@@ -90,7 +56,7 @@ public class Rules {
 
     public void mapCollision()
     {
-        if (level.getMap().getGameMap()[level.getSnake().getHeadPosition().getY()][level.getSnake().getHeadPosition().getX()] == 1) {
+        if (level.getMap().getGameMap()[level.getSnake().getPosition().getY()][level.getSnake().getPosition().getX()] == 1) {
             gameOver = true;
         }
     }
@@ -98,7 +64,7 @@ public class Rules {
     {
         for (Position pos: level.getSnake().getPositions())
         {
-            if ((level.getSnake().getHeadPosition().getY()==(pos.getY()))&&(level.getSnake().getHeadPosition().getX()==pos.getX())&&isFoodEaten()!=true)//isFoodEaten, nes kuomet suvalgome 1 koordinatė sutampa
+            if ((level.getSnake().getPosition().getY()==(pos.getY()))&&(level.getSnake().getPosition().getX()==pos.getX())&&!isFoodEaten())//isFoodEaten, nes kuomet suvalgome 1 koordinatė sutampa
             {
                 gameOver=true;
             }

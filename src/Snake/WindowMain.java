@@ -29,8 +29,8 @@ public class WindowMain extends JPanel{
     public WindowMain() throws IOException, FontFormatException {
         Map map = new Map();
         Random rand= new Random();
-        Snake snake = new Snake(new Position(rand.nextInt(map.getGameMap()[0].length-2)+1, rand.nextInt(map.getGameMap().length-2)+1));
-        Food food = new Food(new Position(rand.nextInt(map.getGameMap()[0].length-2)+1, rand.nextInt(map.getGameMap().length-2)+1));
+        Snake snake = new Snake(map);
+        Food food = new Food(map);
         Score score = new Score(food);
         this.lvl = new Level(snake, map, food, score);
          this.rules = new Rules(lvl);
@@ -103,7 +103,7 @@ public class WindowMain extends JPanel{
                 g.drawImage(tail, 50 + pos.getX() * 30, 100 + pos.getY() * 30, 64, 64, null);
             }
         }
-        g.drawImage(snakeImage, 50 + lvl.getSnake().getHeadPosition().getX() * 30, 100 + lvl.getSnake().getHeadPosition().getY() * 30, 64, 64, null);
+        g.drawImage(snakeImage, 50 + lvl.getSnake().getPosition().getX() * 30, 100 + lvl.getSnake().getPosition().getY() * 30, 64, 64, null);
 
        g.drawImage(foodImage, 50+lvl.getFood().getPosition().getX()*30, 100+lvl.getFood().getPosition().getY()*30, 50, 50, null);
         for (int y = 0; y < lvl.getMap().width(); y++) {
