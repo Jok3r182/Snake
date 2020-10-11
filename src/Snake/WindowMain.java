@@ -1,47 +1,32 @@
 package Snake;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Random;
 
 import static Snake.GameSettings.*;
 
-
 public class WindowMain extends JPanel{
 
-    private final BufferedImage snakeImage;
-    private final BufferedImage foodImage;
-    private final BufferedImage wallImage;
-    private final BufferedImage forest;
-    private final BufferedImage tail;
     private Rules rules;
     private Level lvl;
+    private Renderer renderer;
     private char command=0;
     private char tempCommand;
 
     public WindowMain() throws IOException, FontFormatException {
         Map map = new Map();
-        Random rand= new Random();
         Snake snake = new Snake(map);
         Food food = new Food(map);
         Score score = new Score(food);
-        this.lvl = new Level(snake, map, food, score);
-         this.rules = new Rules(lvl);
 
-        snakeImage=ImageIO.read(new FileInputStream("src/img/snakeSpriteNr2.png"));
-        foodImage=ImageIO.read(new FileInputStream("src/img/food.png"));
-        wallImage=ImageIO.read(new FileInputStream("src/img/wall.png"));
-        forest=ImageIO.read(new FileInputStream("src/img/Forest.png"));
-        tail=ImageIO.read(new FileInputStream("src/img/tailSnake.png"));
+        this.lvl = new Level(snake, map, food, score);
+        this.rules = new Rules(lvl);
 
         JLabel scoreboard = new JLabel();
         Font font =Font.createFont(Font.TRUETYPE_FONT, new File("src/Fonts/Terasong-mLZ3a.ttf")).deriveFont(30f);
@@ -61,14 +46,17 @@ public class WindowMain extends JPanel{
 
             @Override
             public void keyPressed(KeyEvent e) {
-                tempCommand = e.getKeyChar();
-                if (((command== 'w' && tempCommand != 's') || (command == 's' && tempCommand != 'w'))||((command== 'd' && tempCommand != 'a') || (command == 'a' && tempCommand != 'd'))) {//atvejui jei einant žėmyn bandoma eit aukštyn ir atv.
-                    command = tempCommand;
+                if (e.getKeyChar()=='w'||e.getKeyChar()=='s'||e.getKeyChar()=='d'||e.getKeyChar()=='a') {
+                    tempCommand = e.getKeyChar();
+                    if (((command == 'w' && tempCommand != 's') || (command == 's' && tempCommand != 'w')) || ((command == 'd' && tempCommand != 'a') || (command == 'a' && tempCommand != 'd'))) {//atvejui jei einant žėmyn bandoma eit aukštyn ir atv.
+                        command = tempCommand;
+                    }
                 }
                 if (command==0)
                 {
                     command=tempCommand;
                 }
+
             }
             @Override
             public void keyReleased(KeyEvent e) {
@@ -79,7 +67,6 @@ public class WindowMain extends JPanel{
         //tam tikro mygtuko paspaudimu pradeda judėt į command kryptį
         ActionListener actionListener = actionEvent -> {
             repaint();
-
             rules.processUserInput(command);
             rules.foodIsEaten();
             rules.mapCollision();
@@ -93,26 +80,15 @@ public class WindowMain extends JPanel{
         setFocusable(true);
         requestFocusInWindow();
 
+       this.renderer = new Renderer();
+
     }
 
     @Override
     public void paintComponent (Graphics g)
     {
         super.paintComponent(g);
-        g.drawImage(forest, 0, 0, 1700, 1500, null);
-        if (!lvl.getSnake().getPositions().isEmpty()) {
-            for (Position pos : lvl.getSnake().getPositions()) {
-                g.drawImage(tail, 50 + pos.getX() * 30, 100 + pos.getY() * 30, 64, 64, null);
-            }
-        }
-        g.drawImage(snakeImage, 50 + lvl.getSnake().getPosition().getX() * 30, 100 + lvl.getSnake().getPosition().getY() * 30, 64, 64, null);
-
-       g.drawImage(foodImage, 50+lvl.getFood().getPosition().getX()*30, 100+lvl.getFood().getPosition().getY()*30, 50, 50, null);
-        for (int y = 0; y < lvl.getMap().width(); y++) {
-            for (int x = 0; x < lvl.getMap().height(); x++)
-                if (lvl.getMap().isWall(y, x))
-                    g.drawImage(wallImage, 50 + x*30, 100 + y*30, 40, 40, null);//bloko x ir y dydis
-        }
+        this.renderer.render(g, lvl);
     }
     public static void main(String[] args) throws InvocationTargetException, InterruptedException {
         SwingUtilities.invokeAndWait(() -> {
