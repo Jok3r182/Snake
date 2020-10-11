@@ -5,19 +5,24 @@ import java.io.FileWriter;
 import java.util.Scanner;
 
 public class Score {
-    private Apple apple;
+    private Food food;
     private int score;
     private int highScore;
 
-    public Score(Apple apple) {
-        this.apple = apple;
+    public Score(Food food) {
+        this.food = food;
+    }
+
+    public void setFood(Food food)
+    {
+         this.food=food;
     }
 
     public int scored() {
-        return score = score + apple.getFoodValue();
+        return score = score + this.food.getFoodValue();
     }
 
-    public int getScore() {
+    public int checkScore() {
         return this.score;
     }
 

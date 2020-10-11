@@ -23,9 +23,10 @@ public class WindowMain extends JPanel {
         Map map = new Map();
         Snake snake = new Snake(map);
         Apple apple = new Apple(map);
+        GoldenApple goldenApple = new GoldenApple(map);
         Score score = new Score(apple);
 
-        this.lvl = new Level(snake, map, apple, score);
+        this.lvl = new Level(snake, map, apple, goldenApple, score);
         this.rules = new Rules(lvl);
 
         JLabel scoreboard = new JLabel();
@@ -60,8 +61,8 @@ public class WindowMain extends JPanel {
             rules.foodIsEaten();
             rules.mapCollision();
             rules.tailIsHit();
-            scoreboard.setText("<html>" + "Score: " + lvl.getScore().getScore() + "<br/>" + " HighScore: " + lvl.getScore().getHighScore() + "</html>");
-            rules.infoBox("Game Over" + "\n" + "Your score: " + lvl.getScore().getScore() + "\nYour Highest Score: " + lvl.getScore().getHighScore(), "", rules.isGameOver());
+            scoreboard.setText("<html>" + "Score: " + lvl.getScore().checkScore() + "<br/>" + " HighScore: " + lvl.getScore().getHighScore() + "</html>");
+            rules.infoBox("Game Over" + "\n" + "Your score: " + lvl.getScore().checkScore() + "\nYour Highest Score: " + lvl.getScore().getHighScore(), "", rules.isGameOver());
         };
 
         javax.swing.Timer time = new Timer(difficultyNormal, actionListener);

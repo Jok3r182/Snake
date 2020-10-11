@@ -15,10 +15,12 @@ public class Renderer extends JPanel {
     private final BufferedImage wallImage;
     private final BufferedImage forestImg;
     private final BufferedImage tailImg;
+    private final BufferedImage goldenApple;
 
     public Renderer() throws IOException {
         snakeImage = ImageIO.read(new FileInputStream("src/img/snakeSpriteNr2.png"));
         foodImage = ImageIO.read(new FileInputStream("src/img/food.png"));
+        goldenApple = ImageIO.read(new FileInputStream("src/img/goldenapple.png"));
         wallImage = ImageIO.read(new FileInputStream("src/img/wall.png"));
         forestImg = ImageIO.read(new FileInputStream("src/img/Forest.png"));
         tailImg = ImageIO.read(new FileInputStream("src/img/tailSnake.png"));
@@ -34,7 +36,16 @@ public class Renderer extends JPanel {
         }
         g.drawImage(snakeImage, distanceBetweenHeadingX + lvl.getSnake().getPosition().getX() * hitboxSize, distanceBetweenHeadingY + lvl.getSnake().getPosition().getY() * hitboxSize, snakeImgX, snakeImgY, null);
 
-        g.drawImage(foodImage, distanceBetweenHeadingX + lvl.getFood().getPosition().getX() * hitboxSize, distanceBetweenHeadingY + lvl.getFood().getPosition().getY() * hitboxSize, foodImgX, foodImgY, null);
+
+
+        if (lvl.getScore().checkScore()%goldenAppleRate==residueZero&&lvl.getScore().checkScore()!=0) {
+            g.drawImage(goldenApple, distanceBetweenHeadingX + lvl.getGoldenApple().getPosition().getX() * hitboxSize, distanceBetweenHeadingY + lvl.getGoldenApple().getPosition().getY() * hitboxSize, foodImgX, foodImgY, null);
+        }
+        else
+        {
+            g.drawImage(foodImage, distanceBetweenHeadingX + lvl.getApple().getPosition().getX() * hitboxSize, distanceBetweenHeadingY + lvl.getApple().getPosition().getY() * hitboxSize, foodImgX, foodImgY, null);
+        }
+
         for (int y = 0; y < lvl.getMap().width(); y++) {
             for (int x = 0; x < lvl.getMap().height(); x++)
                 if (lvl.getMap().isWall(y, x))

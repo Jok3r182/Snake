@@ -2,6 +2,8 @@ package Snake;
 
 import javax.swing.*;
 
+import static Snake.GameSettings.*;
+
 public class Rules {
     private Level level;
     private boolean gameOver = false;
@@ -35,15 +37,36 @@ public class Rules {
         }
     }
 
-    public void foodIsEaten() {
-        if (level.getSnake().getPosition().getY() == level.getFood().getPosition().getY() && level.getSnake().getPosition().getX() == level.getFood().getPosition().getX()) {
-            level.getSnake().addTail(new Position(level.getSnake().getPosition()));
-            level.getFood().setNewPosition();
-            level.getScore().scored();
-            foodEaten = true;
-        } else {
-            foodEaten = false;
+   public void setApple(Food food)
+   {
+       level.setFood(food);
+       level.getScore().setFood(food);
+       food.setNewPosition();
+   }
+
+
+    public void spawnApple()
+    {
+        if (level.getScore().checkScore()%goldenAppleRate==residueZero&&level.getScore().checkScore()!=0)
+        {
+            setApple(level.getGoldenApple());
         }
+        else
+        {
+           setApple(level.getApple());
+        }
+    }
+
+    public void foodIsEaten() {
+            if (level.getSnake().getPosition().getY() == level.getFood().getPosition().getY() && level.getSnake().getPosition().getX() ==level.getFood().getPosition().getX()) {
+                level.getSnake().addTail(new Position(level.getSnake().getPosition()));
+                level.getScore().scored();
+                spawnApple();
+                foodEaten = true;
+            } else {
+                foodEaten = false;
+            }
+
     }
 
     public boolean isFoodEaten() {

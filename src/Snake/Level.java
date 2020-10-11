@@ -4,21 +4,42 @@ public class Level {
     private Snake snake;
     private Map map;
     private Apple apple;
+    private GoldenApple goldenApple;
+    private Food food;
     private Score score;
 
-    public Level(Snake snake, Map map, Apple apple, Score score) {
+    public Level(Snake snake, Map map, Apple apple, GoldenApple goldenApple, Score score) {
         setSnake(snake);
         setMap(map);
+        setGoldenApple(goldenApple);
+        setApple(apple);
         setFood(apple);
         setScore(score);
     }
 
-    public Apple getFood() {
+    public Food getFood(){
+        return food;
+    }
+
+    public void setFood(Food food)
+    {
+        this.food=food;
+    }
+
+    public Apple getApple() {
         return apple;
     }
 
-    public void setFood(Apple apple) {
+    public void setApple(Apple apple) {
         this.apple = apple;
+    }
+
+    public GoldenApple getGoldenApple() {
+        return goldenApple;
+    }
+
+    public void setGoldenApple(GoldenApple goldenApple) {
+        this.goldenApple = goldenApple;
     }
 
     public Map getMap() {

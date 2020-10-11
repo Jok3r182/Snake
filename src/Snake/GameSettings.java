@@ -1,11 +1,16 @@
 package Snake;
 
 import java.awt.*;
+import java.util.Random;
 
-public class GameSettings {
+public class GameSettings extends RandomNumber{
+
+
 
     public static final int appleValue = 10;
     public static final int goldenAppleValue=100;
+    public static final int residueZero=0;
+    public static int goldenAppleRate= generateRandomNumberFromZeroToHundred();
 
     public static final int difficultyEasy = 100;
     public static final int difficultyNormal = 70;
