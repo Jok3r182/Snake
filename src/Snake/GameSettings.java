@@ -38,6 +38,7 @@ public class GameSettings extends RandomNumber{
 
     public static final Color scoreboardColor = new Color(153, 229, 80);
 
+
     public static final float fontSize = 30f;
 
 }

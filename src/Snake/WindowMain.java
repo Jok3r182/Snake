@@ -30,12 +30,12 @@ public class WindowMain extends JPanel {
         this.rules = new Rules(lvl);
 
         JLabel scoreboard = new JLabel();
-        Font font = Font.createFont(Font.TRUETYPE_FONT, new File("src/Fonts/Terasong-mLZ3a.ttf")).deriveFont(fontSize);
+        Font scoreboardFont = Font.createFont(Font.TRUETYPE_FONT, new File("src/Fonts/Terasong-mLZ3a.ttf")).deriveFont(fontSize);
 
-        scoreboard.setFont(font);
+        scoreboard.setFont(scoreboardFont);
         scoreboard.setForeground(scoreboardColor);
 
-        GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(font);//html nemato font, reikia jį registruoti JRE
+        GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(scoreboardFont);//html nemato font, reikia jį registruoti JRE
 
         super.add(scoreboard);
         super.addKeyListener(new KeyAdapter() {
