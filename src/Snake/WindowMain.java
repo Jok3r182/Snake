@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Random;
 
+import static Snake.GameSettings.*;
+
 
 public class WindowMain extends JPanel{
 
@@ -86,7 +88,7 @@ public class WindowMain extends JPanel{
             rules.infoBox("Game Over"+"\n"+"Your score: "+lvl.getScore().getScore()+"\nYour Highest Score: "+lvl.getScore().getHighScore(), "", rules.isGameOver());
         };
 
-        javax.swing.Timer time = new Timer(100, actionListener);
+        javax.swing.Timer time = new Timer(difficultyNormal, actionListener);
         time.start();
         setFocusable(true);
         requestFocusInWindow();

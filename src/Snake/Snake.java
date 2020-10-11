@@ -34,7 +34,7 @@ public class Snake extends Location{
             getPositions().get(i).setX(pos.getX());
             pos.setY(tpos.getY());//patį headpos keičiame tpos
             pos.setX(tpos.getX());
-         //pvz headpos 0 4 0 3 0 2
+             //pvz headpos 0 4 0 3 0 2
             //tuomet tpos-0 3, 0 3 keisime (pos) 0 4, o pos keisime į tpos į 0 3
             //kai prieisime 0 2, juos keisime į pos kas buvo 0 3, o 0 3 į 0 2, taip eitume kol praeitume visą listą
             //0 3 0 3 suvalgius

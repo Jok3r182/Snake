@@ -1,6 +1,6 @@
 package Snake;
 
-import static Snake.Constants.foodValue;
+import static Snake.GameSettings.foodValue;
 
 public class Food extends Location{
 
