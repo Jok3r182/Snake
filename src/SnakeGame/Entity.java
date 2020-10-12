@@ -5,9 +5,7 @@ import java.util.Random;
 public class Entity {
     protected Position position;
     protected Map map;
-    protected Score score;
-
-    Random random = new Random();
+    private Random random = new Random();
 
     public Entity(Map map) {
         this.map = map;
