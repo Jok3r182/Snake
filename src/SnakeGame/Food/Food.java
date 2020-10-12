@@ -11,7 +11,6 @@ public abstract class Food extends Entity implements ObjectRendered {
         this.position = setStartingPosition();
     }
 
-
     public abstract int getFoodValue();
 
 }

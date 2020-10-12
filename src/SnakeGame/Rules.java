@@ -49,7 +49,7 @@ public class Rules {
 
     public void spawnApple()
     {
-        if (level.getScore().checkScore()%goldenAppleRate==residueZero&&level.getScore().checkScore()!=0)
+        if (level.getScore().checkScore()!=0&&level.getScore().checkScore()%goldenAppleRate==residueZero)
         {
             setApple(level.getGoldenApple());
         }

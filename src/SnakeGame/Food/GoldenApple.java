@@ -1,6 +1,5 @@
 package SnakeGame.Food;
 
-import SnakeGame.Food.Food;
 import SnakeGame.Level;
 import SnakeGame.Map;
 

@@ -9,9 +9,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import static SnakeGame.GameSettings.*;
-
 
 public class Snake extends Entity implements ObjectRendered {
     private ArrayList<Position> positions = new ArrayList<>();
