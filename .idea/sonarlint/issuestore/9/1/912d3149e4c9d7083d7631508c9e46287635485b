@@ -1,10 +1,6 @@
 
-
-java:S1186+"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷—8¹ïçòĞ.
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’à°¬øÿÿÿÿ
 I
-java:S1948"'Make "rules" transient or serializable.(Ï«ıæşÿÿÿÿ8Ûğ‰ÄĞ.
-£
-java:S1186>"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(˜Â½€øÿÿÿÿ8ƒƒºÑ.
+java:S1948"'Make "rules" transient or serializable.(Ï«ıæşÿÿÿÿ8‰ªŞÃÑ.
 G
 java:S1948"%Make "lvl" transient or serializable.(¤À¹®ÿÿÿÿÿ8İ¤ÆóĞ.
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’à°¬øÿÿÿÿ

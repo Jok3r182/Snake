@@ -20,6 +20,14 @@ K
 K
 src/Snake/GameSettings.java,6\4\645028cfb6465efe1aff83628036d85bfa380ecc
 G
-src/Snake/Location.java,7\3\730d2144b8b9257192696a681d4f3cdda6006375
-G
 src/Snake/Renderer.java,c\4\c493b26e26a88fdbf69367b2eef4b45948c46087
+D
+src/Snake/Apple.java,4\4\44112c979571ae83f1032f75a43ee1231386a5b0
+E
+src/Snake/Entity.java,3\6\367332977a0b68cf1855ffb6a33aef3ca1b218a4
+H
+src/Snake/FoodValue.java,3\8\382d0b2806d0b9e5d6a6a003192066183fd64230
+J
+src/Snake/GoldenApple.java,0\9\099adaafba0a4603000e2c423fd2abc1bc385fd4
+K
+src/Snake/RandomNumber.java,6\7\67dbce572792bc686ec4ad0b2256f8c457f08781
