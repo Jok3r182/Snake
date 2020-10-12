@@ -1,14 +1,0 @@
-
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’à°¬øÿÿÿÿ
-J
-java:S1948"-Make "goldenApple" transient or serializable.(·õ8õĞ€ÂÑ.
-F
-java:S1948")Make "tailImg" transient or serializable.(õ¨Â8Œ²ÁºÑ.
-G
-java:S1948"+Make "forestImg" transient or serializable.(Äã×58¬ğÀºÑ.
-I
-java:S1948",Make "snakeImage" transient or serializable.(«ùÖ¾8—®¿ºÑ.
-M
-java:S1948"+Make "wallImage" transient or serializable.(æÊ›“øÿÿÿÿ8Ü¦ÀºÑ.
-M
-java:S1948"+Make "foodImage" transient or serializable.(£ÆÉÿùÿÿÿÿ8à÷¿ºÑ.

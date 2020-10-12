@@ -10,6 +10,10 @@ import static SnakeGame.GameSettings.*;
 import static SnakeGame.GameSettings.wallImgY;
 
 public class Map implements ObjectRendered {
+    private static Map instance;
+
+    private Map(){};
+
     private int[][] gameMap = new int[][]{
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
             {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
@@ -53,6 +57,14 @@ public class Map implements ObjectRendered {
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
     };
 
+    public static Map getInstance(){
+        if (instance ==null)
+        {
+            instance = new Map();
+        }
+        return instance;
+    }
+
     public boolean isAvailable(int y, int x) {
         return gameMap[y][x] == 0;
     }
@@ -83,7 +95,7 @@ public class Map implements ObjectRendered {
         for (int y = 0; y < width(); y++) {
             for (int x = 0; x < height(); x++)
                 if (isWall(y, x))
-                    graphics.drawImage(wallImg, distanceBetweenHeadingX + x * hitboxSize, distanceBetweenHeadingY + y * hitboxSize, wallImgX, wallImgY, null);//bloko x ir y dydis
+                    graphics.drawImage(wallImg, distanceBetweenHeadingX + x * hitboxSize, distanceBetweenHeadingY + y * hitboxSize, wallImgX, wallImgY, null);
         }
     }
 }

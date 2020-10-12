@@ -10,36 +10,38 @@ public class Rules {
     private Level level;
     private boolean gameOver = false;
     private boolean foodEaten = false;
+    private static Rules instance;
+
 
     public Rules(Level level) {
         this.level = level;
     }
 
-    public void processUserInput(int key) {
-        switch (key) {
-            case 'w':
-                level.getSnake().snakeTailMovement();
-                level.getSnake().setPosition(level.getSnake().getPosition().up());
-                break;
-            case 's':
-                level.getSnake().snakeTailMovement();
-                level.getSnake().setPosition(level.getSnake().getPosition().down());
-                break;
-            case 'a':
-                level.getSnake().snakeTailMovement();
-                level.getSnake().setPosition(level.getSnake().getPosition().left());
-                break;
-            case 'd':
-                level.getSnake().snakeTailMovement();
-                level.getSnake().setPosition(level.getSnake().getPosition().right());
-                break;
-            case 'q':
-                setGameOver(true);
-                break;
-        }
+    public void exitGame() {
+        setGameOver(true);
     }
 
-   public void setApple(Food food)
+    public void moveRight() {
+        level.getSnake().snakeTailMovement();
+        level.getSnake().setPosition(level.getSnake().getPosition().right());
+    }
+
+    public void moveLeft() {
+        level.getSnake().snakeTailMovement();
+        level.getSnake().setPosition(level.getSnake().getPosition().left());
+    }
+
+    public void moveDown() {
+        level.getSnake().snakeTailMovement();
+        level.getSnake().setPosition(level.getSnake().getPosition().down());
+    }
+
+    public void moveUp() {
+        level.getSnake().snakeTailMovement();
+        level.getSnake().setPosition(level.getSnake().getPosition().up());
+    }
+
+    public void setApple(Food food)
    {
        level.setFood(food);
        level.getScore().setFood(food);
@@ -76,7 +78,7 @@ public class Rules {
     }
 
     public void mapCollision() {
-        if (level.getMap().getGameMap()[level.getSnake().getPosition().getY()][level.getSnake().getPosition().getX()] == 1) {
+        if (!level.getMap().isAvailable(level.getSnake().getPosition())) {
             gameOver = true;
         }
     }

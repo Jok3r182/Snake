@@ -1,22 +1,23 @@
 package SnakeGame;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import static SnakeGame.GameSettings.*;
 
 public class Renderer extends JPanel {
-    private final BufferedImage forestImg;
+
+    private Image icon;
     private ArrayList<ObjectRendered> allObjectsRendered= new ArrayList<>();
 
     public Renderer() throws IOException {
-        forestImg = ImageIO.read(new FileInputStream("src/img/Forest.png"));
+         icon = new ImageIcon(new URL("https://i.pinimg.com/originals/b3/48/fd/b348fd7e8ebf92d40b4394f203c55154.gif")).getImage();
+
     }
+
     public void addObjectsToRenderer(ObjectRendered objectRendered)
     {
         allObjectsRendered.add(objectRendered);
@@ -24,7 +25,8 @@ public class Renderer extends JPanel {
 
     public void render(Graphics g, Level lvl) throws IOException {
         super.paintComponent(g);
-        g.drawImage(forestImg, forestImgPositionX, getForestImgPositionY, backgroundWidth, backgroundHeight, null);
+
+        g.drawImage(icon, forestImgPositionX, getForestImgPositionY, backgroundWidth, backgroundHeight, null);
 
         for (ObjectRendered objectRendered: allObjectsRendered)
         {

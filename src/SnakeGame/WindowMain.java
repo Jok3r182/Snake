@@ -1,5 +1,7 @@
 package SnakeGame;
 
+import SnakeGame.Controls.Command;
+import SnakeGame.Controls.CommandFactory;
 import SnakeGame.Food.Apple;
 import SnakeGame.Food.GoldenApple;
 import SnakeGame.Snake.Snake;
@@ -24,14 +26,16 @@ public class WindowMain extends JPanel {
     private char tempCommand;
 
     public WindowMain() throws IOException, FontFormatException {
-        Map map = new Map();
+        Map map = Map.getInstance();
         Snake snake = new Snake(map);
 
         Apple apple = new Apple(map);
         Score score = new Score(apple);
         GoldenApple goldenApple = new GoldenApple(map);
+        CommandFactory commandFactory = new CommandFactory();
         this.lvl = new Level(snake, map, apple, goldenApple, score);
         this.rules = new Rules(lvl);
+
 
         JLabel scoreboard = new JLabel();
         Font scoreboardFont = Font.createFont(Font.TRUETYPE_FONT, new File("src/Fonts/Terasong-mLZ3a.ttf")).deriveFont(fontSize);
@@ -39,7 +43,9 @@ public class WindowMain extends JPanel {
         scoreboard.setFont(scoreboardFont);
         scoreboard.setForeground(scoreboardColor);
 
-        GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(scoreboardFont);//html nemato font, reikia jį registruoti JRE
+        //html nemato font, reikia jį registruoti JRE
+        GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(scoreboardFont);
+
 
         super.add(scoreboard);
         super.addKeyListener(new KeyAdapter() {
@@ -47,7 +53,6 @@ public class WindowMain extends JPanel {
             public void keyPressed(KeyEvent e) {
                 if (checkIfCorrectKeyWasPressed(e.getKeyChar())) {
                     tempCommand = e.getKeyChar();
-                    //atvejui jei einant žėmyn bandoma eit aukštyn ir atv.
                     if (((command == 'w' && tempCommand != 's') || (command == 's' && tempCommand != 'w')) || ((command == 'd' && tempCommand != 'a') || (command == 'a' && tempCommand != 'd'))) {
                         command = tempCommand;
                     }
@@ -58,10 +63,9 @@ public class WindowMain extends JPanel {
             }
         });
 
-        //tam tikro mygtuko paspaudimu pradeda judėt į command kryptį
         ActionListener actionListener = actionEvent -> {
             repaint();
-            rules.processUserInput(command);
+            commandFactory.createCommand(command, rules);
             rules.foodIsEaten();
             rules.mapCollision();
             rules.tailIsHit();
@@ -76,14 +80,13 @@ public class WindowMain extends JPanel {
 
         this.renderer = new Renderer();
         renderer.addObjectsToRenderer(snake);
-        renderer.addObjectsToRenderer(map);
         renderer.addObjectsToRenderer(apple);
         renderer.addObjectsToRenderer(goldenApple);
-
+        renderer.addObjectsToRenderer(map);
     }
 
     public boolean checkIfCorrectKeyWasPressed(char c) {
-        return c == 'w' || c == 's' || c == 'a' || c == 'd'||c=='q';
+        return c == 'w' || c == 's' || c == 'a' || c == 'd' || c == 'q';
     }
 
     @Override
