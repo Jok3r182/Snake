@@ -31,5 +31,19 @@ H
 src/SnakeGame/Score.java,6\5\654313035e8bd7719a757d80bbbf3e6addf3719e
 M
 src/SnakeGame/WindowMain.java,b\6\b6256894c2f7fbb947a3fba9786ec31617d607c2
-H
-src/SnakeGame/tests.java,2\2\220a52e63271b15ede3bfd17b86cbad67a55c8c7
+W
+'src/SnakeGame/Controls/ExitProgram.java,b\c\bc1d41c2260fa9c1c76f734c88886a66b0fb14fa
+T
+$src/SnakeGame/Controls/MoveDown.java,b\b\bb2d4a78ccc0269763ecd59fb77246353711a096
+T
+$src/SnakeGame/Controls/MoveLeft.java,b\2\b21fe20a7b7fe1a9f545785ad89ba958b3bc5c44
+S
+#src/SnakeGame/Controls/Command.java,6\b\6b54b6f4d9b96a683e2880e879c6a9f099df0589
+R
+"src/SnakeGame/Controls/MoveUp.java,0\3\03d6ba6225a8845eb010c56258b72ef4ecc1631f
+U
+%src/SnakeGame/Controls/MoveRight.java,7\0\70dd4faec403e0b989ca2049a12cf2cdc29f7de5
+Z
+*src/SnakeGame/Controls/CommandFactory.java,5\6\5681213c4a21596e1750ae2cdc53a9c70119d41a
+I
+src/SnakeGame/Tester.java,1\c\1c24bfb11920609f29240d535b4d5a91b69ea821

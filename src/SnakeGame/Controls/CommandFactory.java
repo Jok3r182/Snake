@@ -5,25 +5,23 @@ import SnakeGame.Rules;
 public class CommandFactory {
 
 
-    public void createCommand(int key, Rules gamerules)
-    {
-        switch (key){
+    public Command createCommand(int key, Rules gamerules) {
+
+        switch (key) {
             case 'a':
-                 new MoveLeft(gamerules).execute();
-                    break;
+                return new MoveLeft(gamerules);
             case 'd':
-                new MoveRight(gamerules).execute();
-                    break;
+                return new MoveRight(gamerules);
             case 's':
-                new MoveDown(gamerules).execute();
-                    break;
+                return new MoveDown(gamerules);
             case 'w':
-                new MoveUp(gamerules).execute();
-               break;
+                return new MoveUp(gamerules);
             case 'q':
-                new ExitProgram(gamerules).execute();
-                break;
+                return new ExitProgram(gamerules);
+            default:
+                return new UnwantedCommand();
         }
+
     }
 
 }

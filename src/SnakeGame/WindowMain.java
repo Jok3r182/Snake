@@ -53,7 +53,7 @@ public class WindowMain extends JPanel {
             public void keyPressed(KeyEvent e) {
                 if (checkIfCorrectKeyWasPressed(e.getKeyChar())) {
                     tempCommand = e.getKeyChar();
-                    if (((command == 'w' && tempCommand != 's') || (command == 's' && tempCommand != 'w')) || ((command == 'd' && tempCommand != 'a') || (command == 'a' && tempCommand != 'd'))) {
+                    if ((((command == 'w' && tempCommand != 's') || (command == 's' && tempCommand != 'w')) || ((command == 'd' && tempCommand != 'a') || (command == 'a' && tempCommand != 'd')))) {
                         command = tempCommand;
                     }
                 }
@@ -65,7 +65,7 @@ public class WindowMain extends JPanel {
 
         ActionListener actionListener = actionEvent -> {
             repaint();
-            commandFactory.createCommand(command, rules);
+            commandFactory.createCommand(command, rules).execute();
             rules.foodIsEaten();
             rules.mapCollision();
             rules.tailIsHit();
