@@ -5,6 +5,7 @@ import SnakeGame.Controls.CommandFactory;
 import SnakeGame.Food.Apple;
 import SnakeGame.Food.GoldenApple;
 import SnakeGame.Snake.Snake;
+import SnakeGame.Snake.SnakeMovementInitializer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,17 +23,16 @@ public class WindowMain extends JPanel {
     private Rules rules;
     private Level lvl;
     private Renderer renderer;
-    private char command = 0;
-    private char tempCommand;
+
 
     public WindowMain() throws IOException, FontFormatException {
         Map map = Map.getInstance();
         Snake snake = new Snake(map);
-
         Apple apple = new Apple(map);
         Score score = new Score(apple);
         GoldenApple goldenApple = new GoldenApple(map);
         CommandFactory commandFactory = new CommandFactory();
+        SnakeMovementInitializer snakeMovementInitializer = new SnakeMovementInitializer(snake);
         this.lvl = new Level(snake, map, apple, goldenApple, score);
         this.rules = new Rules(lvl);
 
@@ -51,21 +51,13 @@ public class WindowMain extends JPanel {
         super.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                if (checkIfCorrectKeyWasPressed(e.getKeyChar())) {
-                    tempCommand = e.getKeyChar();
-                    if ((((command == 'w' && tempCommand != 's') || (command == 's' && tempCommand != 'w')) || ((command == 'd' && tempCommand != 'a') || (command == 'a' && tempCommand != 'd')))) {
-                        command = tempCommand;
-                    }
-                }
-                if (command == 0) {
-                    command = tempCommand;
-                }
+                snakeMovementInitializer.InitializeMovement(e.getKeyChar());
             }
         });
 
         ActionListener actionListener = actionEvent -> {
             repaint();
-            commandFactory.createCommand(command, rules).execute();
+            commandFactory.createCommand(snakeMovementInitializer.getCommand(), rules).execute();
             rules.foodIsEaten();
             rules.mapCollision();
             rules.tailIsHit();
@@ -85,9 +77,6 @@ public class WindowMain extends JPanel {
         renderer.addObjectsToRenderer(map);
     }
 
-    public boolean checkIfCorrectKeyWasPressed(char c) {
-        return c == 'w' || c == 's' || c == 'a' || c == 'd' || c == 'q';
-    }
 
     @Override
     public void paintComponent(Graphics g) {
