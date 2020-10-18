@@ -25,7 +25,7 @@ public class GoldenApple extends Food {
     @Override
     public void renderObject(Graphics graphics, Level level) throws IOException {
         BufferedImage goldenAppleImg = ImageIO.read(new FileInputStream("src/img/goldenapple.png"));
-        if (level.getScore().checkScore() % goldenAppleRate == residueZero && level.getScore().checkScore() != 0) {
+        if (level.checkScore()% goldenAppleRate == residueZero && level.checkScore() != 0) {
             graphics.drawImage(goldenAppleImg, distanceBetweenHeadingX + getPosition().getX() * hitboxSize, distanceBetweenHeadingY + getPosition().getY() * hitboxSize, foodImgX, foodImgY, null);
         }
     }

@@ -19,38 +19,34 @@ public class Tester {
     @Test
     public void shouldMoveInEveryDirection() {
         //Given
-        snake.getPosition().setY(3);
-        snake.getPosition().setX(3);
+        level.setSnakePosition(3, 3);
 
         //when
-        snake.setPosition(level.getSnake().getPosition().down());
-        snake.setPosition(level.getSnake().getPosition().left());
-        snake.setPosition(level.getSnake().getPosition().down());
-        snake.setPosition(level.getSnake().getPosition().right());
-        snake.setPosition(level.getSnake().getPosition().up());
+        level.setSnakePosition(level.getSnakeRightPosition());
+        level.setSnakePosition(level.getSnakeLeftPosition());
+        level.setSnakePosition(level.getSnakeDownPosition());
+        level.setSnakePosition(level.getSnakeRightPosition());
+        level.setSnakePosition(level.getSnakeUpperPosition());
 
         //then
-        assertEquals(true, snake.getPosition().getY() == 4 && snake.getPosition().getX() == 3);
+        assertEquals(true, snake.getPositionX() == 4 && snake.getPositionY() == 3);
 
     }
 
     @Test
     public void shouldFoodBeEaten() {
         //Given
-        snake.getPosition().setX(0);
-        snake.getPosition().setY(1);
-
-        apple.getPosition().setX(1);
-        apple.getPosition().setY(1);
+        level.setSnakePosition(0, 1);
+        level.setApplePosition(1, 1);
 
 
         //when
-        snake.setPosition(level.getSnake().getPosition().right());
+        level.setSnakePosition(level.getSnakeRightPosition());
         rules.foodIsEaten();
 
         //then
         assertEquals(true, rules.isFoodEaten());
-        assertEquals(1, snake.getTailPositions().size());
+        assertEquals(1, level.getTailPositions().size());
 
 
     }
@@ -58,12 +54,11 @@ public class Tester {
     @Test
     public void shouldHitTheWall() {
         //Given
-        snake.getPosition().setY(map.width() - 2);
-        snake.getPosition().setX(map.height() - 2);
+        level.setSnakePosition(map.height() - 2, map.width() - 2);
 
         //when
-        snake.setPosition(snake.getPosition().right());
-        snake.setPosition(snake.getPosition().down());
+        level.setSnakePosition(snake.positionRight());
+        level.setSnakePosition(snake.positionDown());
         rules.mapCollision();
 
         //then
@@ -74,15 +69,14 @@ public class Tester {
     @Test
     public void shouldHitTheTail() {
         //Given
-        snake.addTail(new Position(2, 4));
-        snake.addTail(new Position(2, 3));
-        snake.addTail(new Position(2, 2));
-        snake.addTail(new Position(3, 2));
-        snake.getPosition().setY(3);
-        snake.getPosition().setX(3);
+        level.addSnakeTail(new Position(2, 4));
+        level.addSnakeTail(new Position(2, 3));
+        level.addSnakeTail(new Position(2, 2));
+        level.addSnakeTail(new Position(3, 2));
+        level.setSnakePosition(3, 3);
 
         //when
-        snake.setPosition(level.getSnake().getPosition().left());
+        level.setSnakePosition(level.getSnakeLeftPosition());
         rules.tailIsHit();
 
         //then
@@ -90,4 +84,15 @@ public class Tester {
     }
 
 
+    @Test
+    public void isAppleSpawnedCorrectly() {
+        //Given
+        level.addSnakeTail(new Position(2, 2));
+
+        //when
+       level.setApplePosition(2, 2);
+
+        //then
+        assertEquals(true, rules.checkIfTailIsHit(level.getFoodCoordinateX(), level.getFoodCoordinateY()));
+    }
 }

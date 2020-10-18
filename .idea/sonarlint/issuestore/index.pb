@@ -49,3 +49,5 @@ I
 src/SnakeGame/Tester.java,1\c\1c24bfb11920609f29240d535b4d5a91b69ea821
 [
 +src/SnakeGame/Controls/UnwantedCommand.java,d\e\deaacfc7722e7fc092f5b493058580e97380fcc5
+a
+1src/SnakeGame/Snake/SnakeMovementInitializer.java,a\e\aea67faeb2425c9bfe6eb7ec7ce7b8841de67f75

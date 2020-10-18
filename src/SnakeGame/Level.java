@@ -5,6 +5,9 @@ import SnakeGame.Food.Food;
 import SnakeGame.Food.GoldenApple;
 import SnakeGame.Snake.Snake;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Level {
     private Snake snake;
     private Map map;
@@ -22,8 +25,101 @@ public class Level {
         setScore(score);
     }
 
-    public Food getFood() {
-        return food;
+    public void getSnakeTailMovement() {
+        this.snake.snakeTailMovement();
+    }
+
+    public Position setSnakePosition(Position position) {
+        return this.snake.setPosition(position);
+    }
+
+    public Position getSnakeUpperPosition() {
+        return snake.positionUp();
+    }
+
+    public void setSnakePosition(int x, int y)
+    {
+        snake.setPosition(x, y);
+    }
+
+    public void setApplePosition(int x, int y)
+    {
+        apple.setPosition(x, y);
+    }
+
+    public Position getSnakeDownPosition() {
+        return snake.positionDown();
+    }
+
+    public Position getSnakeLeftPosition() {
+        return snake.positionLeft();
+    }
+
+    public Position getSnakeRightPosition() {
+        return snake.positionRight();
+    }
+
+    public int checkScore() {
+        return score.checkScore();
+    }
+
+    public void setFoodForScore(Food food) {
+        score.setFood(food);
+    }
+
+    public int getSnakeHeadCoordinateX()
+    {
+        return snake.getPositionX();
+    }
+
+    public int getSnakeHeadCoordinateY()
+    {
+        return snake.getPositionY();
+    }
+
+    public int getFoodCoordinateX()
+    {
+        return food.getPositionX();
+    }
+
+    public int getFoodCoordinateY()
+    {
+        return food.getPositionY();
+    }
+
+    public Position getSnakePosition()
+    {
+        return snake.getPosition();
+    }
+
+    public void addScore()
+    {
+        score.scored();
+    }
+
+    public boolean isMapAvailable(Position position)
+    {
+        return map.isAvailable(position);
+    }
+
+    public void addSnakeTail(Position position)
+    {
+        snake.addTail(position);
+    }
+
+    public void saveHighScore()
+    {
+        score.saveHighScore();
+    }
+
+    public int getHighScore()
+    {
+        return score.getHighScore();
+    }
+
+    public List<Position> getTailPositions()
+    {
+       return snake.getTailPositions();
     }
 
     public void setFood(Food food) {
@@ -46,24 +142,12 @@ public class Level {
         this.goldenApple = goldenApple;
     }
 
-    public Map getMap() {
-        return map;
-    }
-
     public void setMap(Map map) {
         this.map = map;
     }
 
-    public Snake getSnake() {
-        return snake;
-    }
-
     public void setSnake(Snake snake) {
         this.snake = snake;
-    }
-
-    public Score getScore() {
-        return score;
     }
 
     public void setScore(Score score) {

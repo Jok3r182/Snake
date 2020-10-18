@@ -1,0 +1,7 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(•³―±
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(―ί›Α8άε‘’Ò.
+`
+java:S1155">Use isEmpty() to check whether the collection is empty or not.(‚β―Ϊϋÿÿÿÿ8ύ™Β’Ò.
+|
+java:S1450"ZRemove the "tempCommand" field and declare it as a local variable in the relevant methods.(ΝΨΔ‚ϋÿÿÿÿ8™΄¦’Ò.

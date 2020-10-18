@@ -19,6 +19,13 @@ public class Entity {
         return this.position = position;
     }
 
+    protected Position setPosition(int x, int y)
+    {
+        this.position.setX(x);
+        this.position.setY(y);
+        return this.position;
+    }
+
     protected Position setNewPosition() {
 
         position.setX(random.nextInt(map.height() - 2) + 1);
@@ -31,4 +38,13 @@ public class Entity {
         return new Position(random.nextInt(map.height() - 2) + 1, random.nextInt(map.width() - 2) + 1);
     }
 
+    public int getPositionY()
+    {
+        return getPosition().getY();
+    }
+
+    public int getPositionX()
+    {
+        return getPosition().getX();
+    }
 }

@@ -10,7 +10,6 @@ public class Rules {
     private Level level;
     private boolean gameOver = false;
     private boolean foodEaten = false;
-    private static Rules instance;
 
 
     public Rules(Level level) {
@@ -22,36 +21,40 @@ public class Rules {
     }
 
     public void moveRight() {
-        level.getSnake().snakeTailMovement();
-        level.getSnake().setPosition(level.getSnake().getPosition().right());
+        level.getSnakeTailMovement();
+        level.setSnakePosition(level.getSnakeRightPosition());
     }
 
     public void moveLeft() {
-        level.getSnake().snakeTailMovement();
-        level.getSnake().setPosition(level.getSnake().getPosition().left());
+        level.getSnakeTailMovement();
+        level.setSnakePosition(level.getSnakeLeftPosition());
     }
 
     public void moveDown() {
-        level.getSnake().snakeTailMovement();
-        level.getSnake().setPosition(level.getSnake().getPosition().down());
+        level.getSnakeTailMovement();
+        level.setSnakePosition(level.getSnakeDownPosition());
     }
 
     public void moveUp() {
-        level.getSnake().snakeTailMovement();
-        level.getSnake().setPosition(level.getSnake().getPosition().up());
+        level.getSnakeTailMovement();
+        level.setSnakePosition(level.getSnakeUpperPosition());
     }
 
     public void setApple(Food food)
    {
        level.setFood(food);
-       level.getScore().setFood(food);
+       level.setFoodForScore(food);
        food.setNewPosition();
+       if (checkIfTailIsHit(food.getPositionX(), food.getPositionY()))
+       {
+           food.setNewPosition();
+       }
    }
 
 
     public void spawnApple()
     {
-        if (level.getScore().checkScore()!=0&&level.getScore().checkScore()%goldenAppleRate==residueZero)
+        if (level.checkScore()!=0&&level.checkScore()%goldenAppleRate==residueZero)
         {
             setApple(level.getGoldenApple());
         }
@@ -62,9 +65,9 @@ public class Rules {
     }
 
     public void foodIsEaten() {
-            if (level.getSnake().getPosition().getY() == level.getFood().getPosition().getY() && level.getSnake().getPosition().getX() ==level.getFood().getPosition().getX()) {
-                level.getSnake().addTail(new Position(level.getSnake().getPosition()));
-                level.getScore().scored();
+            if (level.getSnakeHeadCoordinateY()== level.getFoodCoordinateY() && level.getSnakeHeadCoordinateX() ==level.getFoodCoordinateX()) {
+                level.addSnakeTail(new Position(level.getSnakePosition()));
+                level.addScore();
                 spawnApple();
                 foodEaten = true;
             } else {
@@ -78,19 +81,28 @@ public class Rules {
     }
 
     public void mapCollision() {
-        if (!level.getMap().isAvailable(level.getSnake().getPosition())) {
+        if (!level.isMapAvailable(level.getSnakePosition())) {
             gameOver = true;
         }
     }
 
-    public void tailIsHit() {
-        for (Position pos : level.getSnake().getTailPositions()) {
-            if ((level.getSnake().getPosition().getY() == (pos.getY())) && (level.getSnake().getPosition().getX() == pos.getX()) && !isFoodEaten())//isFoodEaten, nes kuomet suvalgome 1 koordinatė sutampa
+    public boolean checkIfTailIsHit(int x, int y)
+    {   Boolean isHit = false;
+        for (Position tailPosition : level.getTailPositions()) {
+            if ((y == (tailPosition.getY())) && (x == tailPosition.getX()))//isFoodEaten, nes kuomet suvalgome 1 koordinatė sutampa
             {
-                gameOver = true;
-                break;
+                isHit=true;
             }
         }
+        return isHit;
+    }
+
+
+    public void tailIsHit() {
+            if (checkIfTailIsHit(level.getSnakeHeadCoordinateX(), level.getSnakeHeadCoordinateY()) && !isFoodEaten())//isFoodEaten, nes kuomet suvalgome 1 koordinatė sutampa
+            {
+                gameOver = true;
+            }
     }
 
     public boolean isGameOver() {
@@ -103,7 +115,7 @@ public class Rules {
 
     public void infoBox(String infoMessage, String titleBar, boolean gameOver) {
         if (gameOver) {
-            level.getScore().saveHighScore();
+            level.saveHighScore();
             JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         }

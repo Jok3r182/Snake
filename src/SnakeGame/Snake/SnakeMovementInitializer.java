@@ -1,7 +1,5 @@
 package SnakeGame.Snake;
 
-import java.awt.event.KeyEvent;
-
 public class SnakeMovementInitializer {
     private char command;
     private char tempCommand;
@@ -22,7 +20,7 @@ public class SnakeMovementInitializer {
         return command;
     }
 
-    public Character snakeMovement(char keypressed)
+    private Character snakeMovement(char keypressed)
     {
         if (snake.getTailPositions().size()==0)
         {
@@ -35,11 +33,11 @@ public class SnakeMovementInitializer {
     }
 
 
-    public boolean checkIfCorrectKeyWasPressed(char keypressed) {
+    private boolean checkIfCorrectKeyWasPressed(char keypressed) {
         return keypressed == 'w' || keypressed == 's' || keypressed == 'a' || keypressed == 'd' || keypressed == 'q';
     }
 
-    public Character checkIfSnakeCanMoveInReversedPosition(char keypressed)
+    private Character checkIfSnakeCanMoveInReversedPosition(char keypressed)
     {
         tempCommand = keypressed;
         if (((command==0||(command == 'w' && tempCommand != 's') || (command == 's' && tempCommand != 'w')) || ((command == 'd' && tempCommand != 'a') || (command == 'a' && tempCommand != 'd')))) {

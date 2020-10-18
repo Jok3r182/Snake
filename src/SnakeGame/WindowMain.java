@@ -1,6 +1,5 @@
 package SnakeGame;
 
-import SnakeGame.Controls.Command;
 import SnakeGame.Controls.CommandFactory;
 import SnakeGame.Food.Apple;
 import SnakeGame.Food.GoldenApple;
@@ -61,8 +60,8 @@ public class WindowMain extends JPanel {
             rules.foodIsEaten();
             rules.mapCollision();
             rules.tailIsHit();
-            scoreboard.setText("<html>" + "Score: " + lvl.getScore().checkScore() + "<br/>" + " HighScore: " + lvl.getScore().getHighScore() + "</html>");
-            rules.infoBox("Game Over" + "\n" + "Your score: " + lvl.getScore().checkScore() + "\nYour Highest Score: " + lvl.getScore().getHighScore(), "", rules.isGameOver());
+            scoreboard.setText("<html>" + "Score: " + lvl.checkScore() + "<br/>" + " HighScore: " + lvl.getHighScore() + "</html>");
+            rules.infoBox("Game Over" + "\n" + "Your score: " + lvl.checkScore() + "\nYour Highest Score: " + lvl.getHighScore(), "", rules.isGameOver());
         };
 
         javax.swing.Timer time = new Timer(difficultyEasy, actionListener);

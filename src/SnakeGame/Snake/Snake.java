@@ -29,22 +29,34 @@ public class Snake extends Entity implements ObjectRendered {
 
     public void snakeTailMovement() {
 
-        Position pos = new Position(this.position); //paimame galvos poziciją
+        Position position = new Position(this.position);
         for (int i = 0; i < getTailPositions().size(); i++) {
-            Position tpos = new Position(getTailPositions().get(i)); //temp prisiliginame esamai uodegos pos
-            getTailPositions().get(i).setY(pos.getY());//pirmaja pos keičiame headpos
-            getTailPositions().get(i).setX(pos.getX());
-            pos.setY(tpos.getY());//patį headpos keičiame tpos
-            pos.setX(tpos.getX());
-            /*pvz headpos 0 4 0 3 0 2
-            tuomet tpos-0 3, 0 3 keisime (pos) 0 4, o pos keisime į tpos į 0 3
-            kai prieisime 0 2, juos keisime į pos kas buvo 0 3, o 0 3 į 0 2, taip eitume kol praeitume visą listą
-            0 3 0 3 suvalgius
-            paėjus 0 4 0 3
-            tuomet suvalgius būtų 0 4 0 3 0 4
-            paėjus 0 5 0 4 0 3*/
+            Position temporaryPos = new Position(getTailPositions().get(i));
+            getTailPositions().get(i).setY(position.getY());
+            getTailPositions().get(i).setX(position.getX());
+            position.setY(temporaryPos.getY());
+            position.setX(temporaryPos.getX());
         }
 
+    }
+
+    public Position positionUp()
+    {
+      return getPosition().up();
+    }
+
+    public Position positionLeft() {
+        return getPosition().left();
+    }
+
+    public Position positionRight()
+    {
+        return getPosition().right();
+    }
+
+    public Position positionDown()
+    {
+        return getPosition().down();
     }
 
     @Override

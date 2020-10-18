@@ -23,14 +23,14 @@ public class Renderer extends JPanel {
         allObjectsRendered.add(objectRendered);
     }
 
-    public void render(Graphics g, Level lvl) throws IOException {
-        super.paintComponent(g);
+    public void render(Graphics graphics, Level lvl) throws IOException {
+        super.paintComponent(graphics);
 
-        g.drawImage(icon, forestImgPositionX, getForestImgPositionY, backgroundWidth, backgroundHeight, null);
+        graphics.drawImage(icon, forestImgPositionX, getForestImgPositionY, backgroundWidth, backgroundHeight, null);
 
         for (ObjectRendered objectRendered: allObjectsRendered)
         {
-            objectRendered.renderObject(g, lvl);
+            objectRendered.renderObject(graphics, lvl);
         }
 
     }

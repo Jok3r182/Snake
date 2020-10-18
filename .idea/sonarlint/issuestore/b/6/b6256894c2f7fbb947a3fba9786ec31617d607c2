@@ -1,8 +1,6 @@
 
-Y
-java:S1128"7Remove this unused import 'SnakeGame.Controls.Command'.(¨ì‘âøÿÿÿÿ8ÇµâïÑ.
-G
-java:S1948"%Make "lvl" transient or serializable.(¤À¹®ÿÿÿÿÿ8¹‘ªàÑ.
 I
 java:S1948"'Make "rules" transient or serializable.(Ï«ıæşÿÿÿÿ8¹‘ªàÑ.
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’ŞîÒ
+G
+java:S1948"%Make "lvl" transient or serializable.(¤À¹®ÿÿÿÿÿ8¹‘ªàÑ.

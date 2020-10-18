@@ -26,7 +26,7 @@ public class Apple extends Food {
     @Override
     public void renderObject(Graphics graphics, Level level) throws IOException {
         BufferedImage appleImg = ImageIO.read(new FileInputStream("src/img/food.png"));
-        if (level.getScore().checkScore() % goldenAppleRate != residueZero || level.getScore().checkScore() == 0) {
+        if (level.checkScore() % goldenAppleRate != residueZero || level.checkScore() == 0) {
             graphics.drawImage(appleImg, distanceBetweenHeadingX + getPosition().getX() * hitboxSize, distanceBetweenHeadingY + getPosition().getY() * hitboxSize, foodImgX, foodImgY, null);
         }
     }

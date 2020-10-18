@@ -85,10 +85,6 @@ public class Map implements ObjectRendered {
         return isAvailable(pos.getY(), pos.getX());
     }
 
-    public int[][] getGameMap() {
-        return gameMap;
-    }
-
     @Override
     public void renderObject(Graphics graphics, Level level) throws IOException {
         BufferedImage wallImg = ImageIO.read(new FileInputStream("src/img/wall.png"));
